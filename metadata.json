@@ -1,0 +1,8 @@
+{
+  "name": "Guia de Descarrego Espiritual",
+  "description": "Um portal espiritual interativo imersivo com Three.js e GSAP para a limpeza energética e elevação de vibração.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
