@@ -143,7 +143,12 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
     cameraRef.current = camera;
 
     // RENDERER
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    // Optimize with powerPreference for dynamic high performance GPU selection
+    const renderer = new THREE.WebGLRenderer({ 
+      antialias: true, 
+      alpha: true, 
+      powerPreference: "high-performance" 
+    });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     containerRef.current.appendChild(renderer.domElement);
@@ -189,7 +194,11 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
     moonGlowRef.current = glowMoon;
 
     // PARTICLES CREATION
-    const particleCount = 1800;
+    // Performance Optimization: Adapt particle counts to smaller viewports to protect mobile CPUs/GPUs
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 800 : 1800;
+    const spiralCount = isMobile ? 480 : 1100;
+    
     const particlesGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
@@ -206,10 +215,10 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
       // Create a nice distribution (part spherical, part spiral, part background dust)
       let x = 0, y = 0, z = 0;
       
-      if (i < 800) {
+      if (i < spiralCount) {
         // Spiral Vortex structure
-        const angle = (i / 800) * Math.PI * 18;
-        const radius = (i / 800) * 16 + 2;
+        const angle = (i / spiralCount) * Math.PI * 18;
+        const radius = (i / spiralCount) * 16 + 2;
         x = Math.cos(angle) * radius;
         y = (Math.random() - 0.5) * 6;
         z = Math.sin(angle) * radius;
@@ -444,7 +453,7 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
 
             // Position Movement logic (dynamic physics morphing)
             // Vortex swirl computation:
-            if (activeVortex > 0.15 && i < 1100) {
+            if (activeVortex > 0.15 && i < spiralCount) {
               // Apply strong orbital pull (spiraling vortex) around the Y axis
               const radius = Math.sqrt(x * x + z * z);
               // Calculate angular speed proportional to vortex force and inversely to radius
