@@ -1,50 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Book3D from './Book3D';
 import { Calendar, ShieldCheck, HeartHandshake, Sparkles, CreditCard } from 'lucide-react';
-import { gsap } from 'gsap';
 
 interface PriceSectionProps {
   onCheckout: () => void;
 }
 
 export default function PriceSection({ onCheckout }: PriceSectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    // Pricing Card reveal
-    const ctx = gsap.context(() => {
-      gsap.from(cardRef.current, {
-        scale: 0.94,
-        opacity: 0,
-        y: 60,
-        duration: 1.2,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 65%',
-        }
-      });
-
-      // Simple infinite pulsing scale effect on the core pricing button!
-      gsap.to(buttonRef.current, {
-        scale: 1.04,
-        duration: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power1.inOut'
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="oferta"
-      ref={containerRef}
-      className="relative min-h-screen py-24 px-4 flex items-center justify-center overflow-hidden scroll-mt-10"
+      className="relative py-8 sm:py-12 px-4 flex items-center justify-center overflow-hidden scroll-mt-20 border-b border-zinc-900/40"
     >
       {/* Golden Portal visual frame */}
       <div className="absolute inset-x-0 top-0 h-[100%] -z-10 pointer-events-none flex items-center justify-center">
@@ -69,7 +35,6 @@ export default function PriceSection({ onCheckout }: PriceSectionProps) {
 
         {/* Golden Interactive Price Card */}
         <div
-          ref={cardRef}
           className="relative rounded-lg bg-[#1a1a1a]/80 border border-[#FFD700]/20 p-8 sm:p-12 shadow-[0_30px_70px_rgba(255,215,0,0.06)] grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center overflow-hidden"
         >
           {/* Subtle gold lines corners decoration */}
@@ -132,11 +97,10 @@ export default function PriceSection({ onCheckout }: PriceSectionProps) {
 
             {/* Pulsing button anchor checkout */}
             <a
-              ref={buttonRef}
               href="https://pay.kiwify.com.br/JGTvMqc"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center group relative w-full py-4 sm:py-5 font-sans font-bold text-xs sm:text-sm tracking-[0.25em] rounded-full bg-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_35px_rgba(255,215,0,0.65)] hover:bg-[#ffe033] transition-all duration-300 overflow-hidden block cursor-pointer uppercase transform"
+              className="text-center group relative w-full py-4 sm:py-5 font-sans font-bold text-xs sm:text-sm tracking-[0.25em] rounded-full bg-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_35px_rgba(255,215,0,0.65)] hover:bg-[#ffe033] transition-all duration-300 overflow-hidden block cursor-pointer uppercase transform hover:scale-[1.03]"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer" />
               ✨ QUERO MEU ACESSO

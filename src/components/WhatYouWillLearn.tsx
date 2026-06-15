@@ -1,52 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { CHAPTERS_DATA } from '../data';
 import Book3D from './Book3D';
-import { BookOpen, Map, Check, ChevronDown } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { BookOpen, ChevronDown } from 'lucide-react';
 
 export default function WhatYouWillLearn() {
   const [activeChapter, setActiveChapter] = useState<number>(1);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const bookColumnRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Stagger chapters entering from the right
-    const ctx = gsap.context(() => {
-      gsap.from('.chapter-node', {
-        x: 80,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 60%',
-        }
-      });
-      
-      // Animate the main details panel
-      gsap.from('.learning-badge', {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.6,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 70%'
-        }
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section
       id="aprendizado"
-      ref={containerRef}
-      className="relative min-h-screen py-24 px-4 flex items-center justify-center overflow-hidden scroll-mt-10"
+      className="relative py-8 sm:py-12 px-4 flex items-center justify-center overflow-hidden scroll-mt-20 border-b border-zinc-900/40"
     >
       <div className="max-w-6xl mx-auto w-full z-10">
         
@@ -78,7 +41,7 @@ export default function WhatYouWillLearn() {
               ✦ Portal da Transmutação ✦
             </span>
             <p className="font-serif italic text-lg sm:text-2xl text-zinc-100 tracking-wide leading-relaxed max-w-3xl mx-auto">
-              "Aprenda a fazer o <span className="text-[#FFD700] not-italic font-semibold drop-shadow-[0_2px_10px_rgba(255,215,0,0.25)]">descarrego</span> através dos estudos do <span className="text-[#FFD700] not-italic font-semibold drop-shadow-[0_2px_10px_rgba(255,215,0,0.25)]">baralho cigano</span>."
+              "Aprenda a fazer o <span className="text-[#FFD700] not-italic font-semibold drop-shadow-[0_2px_10px_rgba(255,215,0,0.25)]">descarrego do baralho cigano</span>."
             </p>
             <p className="text-xs text-zinc-450 mt-3 font-sans font-light">
               Use a sabedoria ancestral do oráculo para limpar influências negativas, proteger seus caminhos e equilibrar sua energia vital.
@@ -91,7 +54,6 @@ export default function WhatYouWillLearn() {
           
           {/* Left Column: Interactive 3D Book */}
           <div
-            ref={bookColumnRef}
             className="lg:col-span-5 flex flex-col items-center justify-center bg-[#1a1a1a]/80 border border-[#FFD700]/20 backdrop-blur-md rounded-lg p-6 sm:p-8 lg:sticky lg:top-24 shadow-2xl overflow-hidden group"
           >
             {/* Visual Header of Mock e-Book Container */}

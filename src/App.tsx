@@ -8,28 +8,14 @@ import BonusSection from './components/BonusSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import PriceSection from './components/PriceSection';
 import CTASection from './components/CTASection';
-import { Volume2, VolumeX, Compass, ShieldCheck } from 'lucide-react';
+import { Compass } from 'lucide-react';
 
 export default function App() {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState<string>('hero');
-  const [audioEnabled, setAudioEnabled] = useState(false);
   
-  // Web Audio synth node references
-  const audioCtxRef = useRef<AudioContext | null>(null);
-  const oscillatorsRef = useRef<OscillatorNode[]>([]);
-  const gainNodeRef = useRef<GainNode | null>(null);
-
-  // Monitor screen scrolls to compute progress & intersection states
+  // Monitor screen scrolls to identify active section based on proximity to center of viewport
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Calculate general scroll percent (0 to 1)
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? scrollTop / docHeight : 0;
-      setScrollProgress(progress);
-
-      // 2. Identify active section based on proximity to center of viewport
       const sections = ['hero', 'problemas', 'transformacao', 'aprendizado', 'bonus', 'depoimentos', 'oferta', 'cta'];
       const viewportHeight = window.innerHeight;
       let closestSection = 'hero';
@@ -51,6 +37,7 @@ export default function App() {
         }
       });
 
+      // Bails out if no section changes (React hook standard optimization)
       setActiveSection(closestSection);
     };
 
@@ -59,85 +46,6 @@ export default function App() {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Web Audio Synthetic 528Hz Solfeggio sound healer generator
-  const toggleHealerMusic = () => {
-    if (!audioCtxRef.current) {
-      // Create new audio context
-      try {
-        const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-        const ctx = new AudioCtx();
-        audioCtxRef.current = ctx;
-
-        // Gain node to govern volume smoothly
-        const masterGain = ctx.createGain();
-        masterGain.gain.setValueAtTime(0, ctx.currentTime);
-        // Soft calming ambient volume
-        masterGain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 1.2);
-        masterGain.connect(ctx.destination);
-        gainNodeRef.current = masterGain;
-
-        // Base 528Hz frequency tuning (Solfeggio frequency for transformation & repairs)
-        const hz528 = 528;
-        // Perfect root harmonics (C, G, E major triads)
-        const freqs = [hz528, hz528 * 0.75, hz528 * 0.5, hz528 * 1.5];
-
-        const oscillators = freqs.map((freq, index) => {
-          const osc = ctx.createOscillator();
-          // Mix sine and triangle waves for ultra-smooth cosmic drone tone
-          osc.type = index % 2 === 0 ? 'sine' : 'triangle';
-          osc.frequency.setValueAtTime(freq, ctx.currentTime);
-          
-          // Tiny local low-frequency-oscillator (LFO) for natural floating amplitude
-          const localGain = ctx.createGain();
-          localGain.gain.setValueAtTime(0.25 + (index * 0.05), ctx.currentTime);
-          
-          osc.connect(localGain);
-          localGain.connect(masterGain);
-          osc.start();
-          return osc;
-        });
-
-        oscillatorsRef.current = oscillators;
-        setAudioEnabled(true);
-      } catch (err) {
-        console.warn('Web Audio error: ', err);
-      }
-    } else {
-      // Toggle existing stream
-      const ctx = audioCtxRef.current;
-      const gain = gainNodeRef.current;
-      if (ctx && gain) {
-        if (audioEnabled) {
-          // Fade sound offline
-          gain.gain.linearRampToValueAtTime(0.0, ctx.currentTime + 0.5);
-          setTimeout(() => {
-            if (ctx.state !== 'suspended') {
-              ctx.suspend();
-            }
-            setAudioEnabled(false);
-          }, 550);
-        } else {
-          // Resume fade online
-          ctx.resume();
-          gain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 0.8);
-          setAudioEnabled(true);
-        }
-      }
-    }
-  };
-
-  // Gracefully terminate audio synths on unmount
-  useEffect(() => {
-    return () => {
-      oscillatorsRef.current.forEach((osc) => {
-        try { osc.stop(); } catch (e) {}
-      });
-      if (audioCtxRef.current) {
-        audioCtxRef.current.close();
-      }
-    };
   }, []);
 
   // Quick jump utility scroll
@@ -152,7 +60,7 @@ export default function App() {
     <div className="relative text-white font-sans selection:bg-purple-950/60 selection:text-amber-200">
       
       {/* Immersive interactive Background Space canvas */}
-      <ThreeCanvas scrollProgress={scrollProgress} activeSection={activeSection} />
+      <ThreeCanvas activeSection={activeSection} />
 
       {/* Floating Header Navbar */}
       <header className="fixed top-0 inset-x-0 h-20 z-40 bg-black/40 border-b border-[#FFD700]/15 backdrop-blur-md flex items-center justify-between px-4 sm:px-10 transition-all duration-300">
@@ -204,38 +112,15 @@ export default function App() {
           </button>
         </nav>
 
-        {/* Action Button & Calm Frequency Volumn block */}
+        {/* Action Button & Direct Checkout block */}
         <div className="flex items-center gap-1.5 sm:gap-4 shrink-0">
           
-          {/* Healing Solfeggio sound play-anchor */}
+          {/* Direct purchase checkout redirect */}
           <button
-            onClick={toggleHealerMusic}
-            title="Ativar Frequência de Cura Solfeggio 528Hz"
-            className={`p-2 rounded-full border transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 ${
-              audioEnabled 
-                ? 'bg-[#FFD700]/10 border-[#FFD700]/40 text-[#FFD700] shadow-[0_0_12px_rgba(255,215,0,0.15)] scale-105' 
-                : 'bg-black/30 border-zinc-800 text-zinc-500 hover:text-zinc-200 hover:border-zinc-700'
-            }`}
-          >
-            {audioEnabled ? (
-              <>
-                <Volume2 className="w-3.5 h-3.5 animate-pulse" />
-                <span className="hidden sm:inline text-[9px] font-mono uppercase tracking-[0.15em] font-bold pr-0.5">Frequência Ativa</span>
-              </>
-            ) : (
-              <>
-                <VolumeX className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline text-[9px] font-mono uppercase tracking-[0.15em] pr-0.5">Ativar Som</span>
-              </>
-            )}
-          </button>
-
-          {/* Quick jump to payments button */}
-          <button
-            onClick={() => scrollToAnchor('oferta')}
+            onClick={() => window.open('https://pay.kiwify.com.br/JGTvMqc', '_blank')}
             className="px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-full font-sans text-[9px] min-[360px]:text-[10px] font-bold tracking-[0.1em] sm:tracking-[0.2em] bg-[#FFD700] text-black shadow-[0_0_15px_rgba(255,215,0,0.25)] hover:shadow-[0_0_25px_rgba(255,215,0,0.45)] cursor-pointer transition-all hover:scale-[1.03] uppercase"
           >
-            RESTAURAR ENERGIA
+            ADQUIRIR GUIA AGORA
           </button>
 
         </div>

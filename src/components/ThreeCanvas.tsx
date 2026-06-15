@@ -2,11 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 interface ThreeCanvasProps {
-  scrollProgress: number; // 0 to 1
   activeSection: string;  // 'hero' | 'problema' | 'transformacao' | 'aprendizado' | 'bonus' | 'depoimentos' | 'oferta' | 'cta'
 }
 
-export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanvasProps) {
+export default function ThreeCanvas({ activeSection }: ThreeCanvasProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
@@ -319,6 +318,19 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
     scene.add(sacredSymbols);
     sacredSymbolsRef.current = sacredSymbols;
 
+    // PRE-ALLOCATED COLOR BUFFERS FOR HIGH-PERFORMANCE FLUID ANIMATION LOOP
+    const blendedColors = [
+      new THREE.Color().copy(colorPurple).lerp(colorIndigo, 0),
+      new THREE.Color().copy(colorPurple).lerp(colorIndigo, 1 / 3),
+      new THREE.Color().copy(colorPurple).lerp(colorIndigo, 2 / 3)
+    ];
+    const tempParticleCol = new THREE.Color();
+    const tempColA = new THREE.Color();
+    const tempMoonColor = new THREE.Color();
+    const tempGlowColor = new THREE.Color();
+    const tempSymColor = new THREE.Color();
+    const tempTargetCol = new THREE.Color('#3f3f46');
+
     // ANIMATION
     let time = 0;
     const lerpSpeed = 0.035; // smooth morph speed
@@ -339,6 +351,11 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
       if (document.hidden) return;
 
       time += 0.01;
+
+      // 1. DYNAMIC HIGH-PERFORMANCE SCROLL CALCULATION (Bypasses parent React state updates completely!)
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = docHeight > 0 ? scrollTop / docHeight : 0;
       
       // Interpolate states smoothly towards targets
       const t = currentStates.current;
@@ -369,12 +386,15 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
 
         // Transition moon glow based on state
         // In deep dark phase, keep it dark purple; in transformed, Golden Eclipse!
-        const moonColor = new THREE.Color('#221144').lerp(new THREE.Color('#9a3412'), Math.min(1, Math.max(0, (activeLerp - 0.3) * 2)));
-        const glowColor = new THREE.Color('#8b5cf6').lerp(new THREE.Color('#eab308'), Math.min(1, Math.max(0, (activeLerp - 0.5) * 2)));
+        const innerMoonT = Math.min(1, Math.max(0, (activeLerp - 0.3) * 2));
+        tempMoonColor.set('#221144').lerp(tempColA.set('#9a3412'), innerMoonT);
+
+        const innerGlowT = Math.min(1, Math.max(0, (activeLerp - 0.5) * 2));
+        tempGlowColor.set('#8b5cf6').lerp(tempColA.set('#eab308'), innerGlowT);
         
         if (moonMat && glowMat) {
-          moonMat.color.copy(moonColor);
-          glowMat.color.copy(glowColor);
+          moonMat.color.copy(tempMoonColor);
+          glowMat.color.copy(tempGlowColor);
           
           if (activeSection === 'oferta' || activeSection === 'cta') {
             glowMat.opacity = 0.15 + Math.sin(time * 3) * 0.03; // pulsing sun portal
@@ -400,14 +420,16 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
           // Color update matching main state
           const meshMat = mesh.material as THREE.MeshBasicMaterial;
           if (meshMat) {
-            const symColor = new THREE.Color(meshMat.color);
-            const targetCol = activeLerp < 0.35 
-              ? new THREE.Color('#8b5cf6') 
-              : activeLerp < 0.65 
-              ? new THREE.Color('#3f3f46') 
-              : new THREE.Color('#fbbf24');
-            symColor.lerp(targetCol, 0.05);
-            meshMat.color.copy(symColor);
+            tempSymColor.copy(meshMat.color);
+            if (activeLerp < 0.35) {
+              tempTargetCol.set('#8b5cf6');
+            } else if (activeLerp < 0.65) {
+              tempTargetCol.set('#3f3f46');
+            } else {
+              tempTargetCol.set('#fbbf24');
+            }
+            tempSymColor.lerp(tempTargetCol, 0.05);
+            meshMat.color.copy(tempSymColor);
             
             // Adjust opacity depending on the scroll
             meshMat.opacity = 0.08 + (1 - scrollProgress) * 0.15;
@@ -432,29 +454,23 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
             const initY = initialPositions[i * 3 + 1];
             const initZ = initialPositions[i * 3 + 2];
 
-            // Color calculation based on activeLerp range
-            // activeLerp range: 0.0 (Purple/Blue) -> 0.35 (Charcoal Grey) -> 0.65 (Transmutation blend) -> 0.8 (Gold dust) -> 1.0 (Portal Vortex White-Gold)
-            const particleCol = new THREE.Color();
+            // Color calculation based on activeLerp range (zero-allocation)
             if (activeLerp < 0.35) {
-              // Blend purple to charcoal grey
               const innerT = activeLerp / 0.35;
-              const colA = new THREE.Color().copy(colorPurple).lerp(colorIndigo, (i % 3) / 3);
-              particleCol.copy(colA).lerp(colorDark, innerT);
+              const colA = blendedColors[i % 3];
+              tempParticleCol.copy(colA).lerp(colorDark, innerT);
             } else if (activeLerp < 0.65) {
-              // Blend dark to gold
               const innerT = (activeLerp - 0.35) / 0.3;
-              particleCol.copy(colorDark).lerp(colorGold, innerT);
+              tempParticleCol.copy(colorDark).lerp(colorGold, innerT);
             } else if (activeLerp < 0.85) {
-              // Gold dominance with some remnants
               const innerT = (activeLerp - 0.65) / 0.2;
-              particleCol.copy(colorGold).lerp(colorWhiteGold, innerT * 0.5);
+              tempParticleCol.copy(colorGold).lerp(colorWhiteGold, innerT * 0.5);
             } else {
-              // High electric portal gold-white sparkle
               const innerT = (activeLerp - 0.85) / 0.15;
-              particleCol.copy(colorGold).lerp(colorWhiteGold, innerT);
+              tempParticleCol.copy(colorGold).lerp(colorWhiteGold, innerT);
             }
 
-            colAttr.setXYZ(i, particleCol.r, particleCol.g, particleCol.b);
+            colAttr.setXYZ(i, tempParticleCol.r, tempParticleCol.g, tempParticleCol.b);
 
             // Position Movement logic (dynamic physics morphing)
             // Vortex swirl computation:

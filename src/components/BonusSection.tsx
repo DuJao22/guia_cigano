@@ -1,10 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { BONUS_DATA } from '../data';
-import { Gift, Zap, DollarSign } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { Gift, Zap } from 'lucide-react';
 
 // Local lightweight particle explosion canvas component
 interface ParticleBurstProps {
@@ -131,8 +127,6 @@ function LocalParticleBurst({ isTriggered }: ParticleBurstProps) {
 }
 
 export default function BonusSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
   // Track hover triggering states for particle engines
   const [hoveredBonusId, setHoveredBonusId] = useState<string | null>(null);
   const [explosionTicks, setExplosionTicks] = useState<{ [id: string]: boolean }>({});
@@ -154,31 +148,10 @@ export default function BonusSection() {
     }));
   };
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Golden chests emerge
-      gsap.from('.bonus-chest-card', {
-        scale: 0.88,
-        opacity: 0,
-        y: 80,
-        stagger: 0.2,
-        duration: 1.0,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 70%',
-        }
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="bonus"
-      ref={containerRef}
-      className="relative min-h-screen py-24 px-4 flex items-center justify-center overflow-hidden scroll-mt-10"
+      className="relative py-8 sm:py-12 px-4 flex items-center justify-center overflow-hidden scroll-mt-20 border-b border-zinc-900/40"
     >
       <div className="max-w-6xl mx-auto w-full z-10">
         

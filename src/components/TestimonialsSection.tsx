@@ -1,42 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { TESTIMONIALS_DATA } from '../data';
 import { Quote, MessageSquare, Star } from 'lucide-react';
-import { gsap } from 'gsap';
 
 export default function TestimonialsSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const cards = containerRef.current?.querySelectorAll('.testimonial-card');
-    if (!cards || cards.length === 0) return;
-
-    // Continuous floating animation matching User Specification exactly
-    const ctx = gsap.context(() => {
-      cards.forEach((card, i) => {
-        gsap.to(card, {
-          y: -18,
-          duration: 3 + (i * 0.5), // stagger cycles so they don't look robotic
-          repeat: -1,
-          yoyo: true,
-          ease: 'power1.inOut',
-          delay: i * 0.3,
-        });
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="depoimentos"
-      ref={containerRef}
-      className="relative min-h-screen py-24 px-4 flex items-center justify-center overflow-hidden scroll-mt-10"
+      className="relative py-8 sm:py-12 px-4 flex items-center justify-center overflow-hidden scroll-mt-20 border-b border-zinc-900/40"
     >
       <div className="max-w-6xl mx-auto w-full z-10">
         
         {/* Header */}
-        <div className="text-center mb-20 animate-fade">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD700]/5 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase mb-4">
             <MessageSquare className="w-3.5 h-3.5" />
             Relatos de Alinhamento
@@ -53,11 +28,11 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Testimonials Grid mapping Floating cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
           {TESTIMONIALS_DATA.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="testimonial-card relative p-8 rounded-lg bg-[#1a1a1a]/80 border border-[#FFD700]/20 shadow-[0_15px_35px_rgba(0,0,0,0.6)] flex flex-col justify-between"
+              className="testimonial-card relative p-8 rounded-lg bg-[#1a1a1a]/80 border border-[#FFD700]/20 hover:border-[#FFD700]/50 shadow-[0_15px_35px_rgba(0,0,0,0.4)] hover:shadow-[0_20px_45px_rgba(255,215,0,0.05)] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5"
             >
               
               {/* Quote Graphic Icon Decals */}

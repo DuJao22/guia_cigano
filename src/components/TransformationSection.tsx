@@ -1,116 +1,38 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { BENEFITS_DATA } from '../data';
 import { CheckCircle2, Sparkles } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function TransformationSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  // Parallax layer references
-  const bgLayerRef = useRef<HTMLDivElement>(null);
-  const midLayerRef = useRef<HTMLDivElement>(null);
-  const mainLayerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Background layer moves 20% of scroll (slow-moving background space)
-      gsap.to(bgLayerRef.current, {
-        y: -100,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        }
-      });
-
-      // Medium layer moves 50% of scroll (floating sacred gold rings)
-      gsap.to(midLayerRef.current, {
-        y: -250,
-        rotate: 45,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        }
-      });
-
-      // Main content enters beautifully with fade-in and slide-up staggered
-      const elements = mainLayerRef.current?.querySelectorAll('.benefit-item');
-      if (elements && elements.length > 0) {
-        gsap.from(elements, {
-          x: -60,
-          opacity: 0,
-          stagger: 0.15,
-          duration: 1.0,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 65%',
-          }
-        });
-      }
-
-      // Main header entry
-      gsap.from('.trans-heading', {
-        opacity: 0,
-        y: 40,
-        duration: 1.0,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 70%',
-        }
-      });
-
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="transformacao"
-      ref={containerRef}
-      className="relative min-h-screen py-24 px-4 flex items-center justify-center overflow-hidden scroll-mt-10"
+      className="relative py-8 sm:py-12 px-4 flex items-center justify-center overflow-hidden scroll-mt-20 border-b border-zinc-900/40"
     >
-      {/* 1. Deep Background Parallax Layer (20%) */}
-      <div
-        ref={bgLayerRef}
-        className="absolute inset-x-0 top-0 h-[120%] -z-10 pointer-events-none"
-      >
+      {/* 1. Deep Background Glow Layer */}
+      <div className="absolute inset-x-0 top-0 h-full -z-10 pointer-events-none">
         {/* Soft glowing cosmic nebulas */}
-        <div className="absolute top-[20%] left-[5%] w-[500px] h-[500px] rounded-full bg-[#4B0082] mix-blend-screen opacity-[0.14] blur-[120px]" />
-        <div className="absolute bottom-[20%] right-[5%] w-[450px] h-[450px] rounded-full bg-[#1E3A8A] mix-blend-screen opacity-[0.14] blur-[100px]" />
+        <div className="absolute top-[20%] left-[5%] w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] rounded-full bg-[#4B0082]/10 mix-blend-screen blur-[100px]" />
+        <div className="absolute bottom-[20%] right-[5%] w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] rounded-full bg-[#1E3A8A]/10 mix-blend-screen blur-[90px]" />
         
         {/* Subtle geometric dot matrix */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,215,0,0.02)_1px,transparent_1px)] bg-[size:32px_32px] opacity-60" />
       </div>
 
-      {/* 2. Middle Parallax Layer (50% speed with rotation) */}
-      <div
-        ref={midLayerRef}
-        className="absolute inset-0 -z-10 pointer-events-none flex items-center justify-center p-4"
-      >
+      {/* 2. Middle Static Sacred Rings */}
+      <div className="absolute inset-0 -z-10 pointer-events-none flex items-center justify-center p-4">
         {/* Giant gold wireframe rings */}
-        <div className="w-[500px] h-[500px] rounded-full border border-[#FFD700]/10 flex items-center justify-center opacity-40">
-          <div className="w-[380px] h-[380px] rounded-full border border-dashed border-[#FFD700]/15 flex items-center justify-center">
-            <div className="w-[240px] h-[240px] rounded-full border border-[#4B0082]/20" />
+        <div className="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full border border-[#FFD700]/5 flex items-center justify-center opacity-30">
+          <div className="w-[220px] h-[220px] sm:w-[380px] sm:h-[380px] rounded-full border border-dashed border-[#FFD700]/10 flex items-center justify-center">
+            <div className="w-[140px] h-[140px] sm:w-[240px] sm:h-[240px] rounded-full border border-[#4B0082]/15" />
           </div>
         </div>
       </div>
 
-      {/* 3. Main Elements Parallax Layer (100% position layout) */}
-      <div ref={mainLayerRef} className="max-w-6xl mx-auto w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* 3. Main Elements (Simple & responsive) */}
+      <div className="max-w-6xl mx-auto w-full z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         {/* Left Side: Visual Promise Card */}
-        <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left trans-heading">
+        <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD700]/5 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase mb-4 animate-pulse">
             <Sparkles className="w-3.5 h-3.5" />
             Clareza Oracular

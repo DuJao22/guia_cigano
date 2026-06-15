@@ -1,34 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Sparkles, Compass, ShieldAlert } from 'lucide-react';
-import { gsap } from 'gsap';
 
 export default function CTASection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const elementRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Stagger slide up transition on entrance
-    const ctx = gsap.context(() => {
-      gsap.from(elementRef.current, {
-        y: 40,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 75%'
-        }
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="cta"
-      ref={containerRef}
-      className="relative min-h-[80vh] py-24 px-4 flex items-center justify-center text-center overflow-hidden"
+      className="relative py-8 sm:py-12 px-4 flex items-center justify-center text-center overflow-hidden"
     >
       {/* Dynamic closing portal representation background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -37,7 +14,7 @@ export default function CTASection() {
         <div className="absolute bottom-[-10%] left-[-5%] w-[450px] h-[450px] bg-[#1E3A8A] rounded-full mix-blend-screen opacity-[0.12] blur-[100px]" />
       </div>
 
-      <div ref={elementRef} className="max-w-3xl mx-auto z-10">
+      <div className="max-w-3xl mx-auto z-10">
         
         {/* Spiritual Compass Icon Badge */}
         <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD700]/5 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase">

@@ -1,41 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { PROBLEMS_DATA } from '../data';
 import { ShieldX } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function ProblemSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Implement standard GSAP stagger-fade matching User Specs exactly
-    const cardsEl = containerRef.current?.querySelectorAll('.problem-card');
-    if (!cardsEl || cardsEl.length === 0) return;
-
-    const ctx = gsap.context(() => {
-      gsap.from(cardsEl, {
-        y: 120,
-        opacity: 0,
-        stagger: 0.2,
-        duration: 0.9,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 75%', // Starts when top of section is 75% down the viewport
-        }
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       id="problemas"
-      ref={containerRef}
-      className="relative min-h-screen py-24 px-4 flex flex-col justify-center scroll-mt-10"
+      className="relative py-8 sm:py-12 px-4 flex flex-col justify-center scroll-mt-20 border-b border-zinc-900/40"
     >
       <div className="max-w-6xl mx-auto z-10 w-full">
         

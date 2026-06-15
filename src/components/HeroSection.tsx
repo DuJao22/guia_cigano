@@ -59,7 +59,7 @@ export default function HeroSection({ onCTA }: HeroSectionProps) {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-4 pt-12 select-none overflow-hidden"
+      className="relative min-h-[82vh] py-12 sm:py-16 flex flex-col items-center justify-center text-center px-4 pt-20 select-none overflow-hidden border-b border-zinc-900/40"
     >
       <div className="max-w-4xl mx-auto z-10">
         
@@ -96,7 +96,7 @@ export default function HeroSection({ onCTA }: HeroSectionProps) {
         <div className="mt-12 flex flex-col items-center justify-center gap-4">
           <button
             ref={buttonRef}
-            onClick={onCTA}
+            onClick={() => window.open('https://pay.kiwify.com.br/JGTvMqc', '_blank')}
             className="group relative px-10 py-5 font-sans font-bold text-xs sm:text-sm tracking-[0.25em] rounded-full bg-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_35px_rgba(255,215,0,0.65)] hover:bg-[#ffe033] transition-all duration-300 cursor-pointer transform hover:scale-[1.05] active:scale-95 flex items-center gap-3 overflow-hidden uppercase"
           >
             {/* Glossy overlay sheen */}
