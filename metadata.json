@@ -1,6 +1,6 @@
 {
-  "name": "Guia de Descarrego Espiritual",
-  "description": "Um portal espiritual interativo imersivo com Three.js e GSAP para a limpeza energética e elevação de vibração.",
+  "name": "Manual do Baralho Cigano",
+  "description": "Um portal interativo imersivo com Three.js e GSAP ensinando as técnicas e combinações do Baralho Cigano.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

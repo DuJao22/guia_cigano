@@ -43,9 +43,9 @@ export default function Book3D({ className = '', autoRotateSpeed = 0.01 }: Book3
     camera.position.z = 7;
 
     // RENDERER
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.3));
     mountRef.current.appendChild(renderer.domElement);
 
     // LIGHTS
@@ -259,11 +259,28 @@ export default function Book3D({ className = '', autoRotateSpeed = 0.01 }: Book3
     };
     window.addEventListener('resize', handleResize);
 
+    // Setup IntersectionObserver to suspend execution when offscreen
+    let isIntersecting = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isIntersecting = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    if (mountRef.current) {
+      observer.observe(mountRef.current);
+    }
+
     // Animation Tick
     let time = 0;
     let animationId: number;
 
     const animate = () => {
+      animationId = requestAnimationFrame(animate);
+
+      // Performant bypass if hidden/offsite
+      if (!isIntersecting || document.hidden) return;
+
       time += 0.01;
 
       // Gentle floating up and down
@@ -295,7 +312,6 @@ export default function Book3D({ className = '', autoRotateSpeed = 0.01 }: Book3
       bookGroup.rotation.z = Math.sin(time * 0.6) * 0.03; // very slight elegant banking
 
       renderer.render(scene, camera);
-      animationId = requestAnimationFrame(animate);
     };
 
     animate();
@@ -303,6 +319,7 @@ export default function Book3D({ className = '', autoRotateSpeed = 0.01 }: Book3
     // CLEANUP
     return () => {
       if (animationId) cancelAnimationFrame(animationId);
+      observer.disconnect();
       window.removeEventListener('resize', handleResize);
       
       domEl.removeEventListener('mousedown', onMouseDown);

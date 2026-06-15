@@ -66,7 +66,7 @@ export default function HeroSection({ onCTA }: HeroSectionProps) {
         {/* Sacred Mystic Badge */}
         <div className="mb-6 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-indigo-950/20 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase animate-pulse">
           <Sparkles className="w-3.5 h-3.5 text-[#FFD700]" />
-          Restaure Seu Campo Astral
+          Desvende o Oráculo Cigano
         </div>
 
         {/* Display Heading paired with Artistic Flair Serif Spec */}
@@ -74,13 +74,13 @@ export default function HeroSection({ onCTA }: HeroSectionProps) {
           ref={titleRef}
           className="text-5xl sm:text-7xl lg:text-[85px] font-extralight leading-[1.05] tracking-tighter italic font-serif text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-100 to-zinc-300 drop-shadow-lg"
         >
-          Guia Completo de <br />
+          Guia de Leitura do <br />
           <span className="text-[#FFD700] font-normal not-italic tracking-[0.05em] uppercase drop-shadow-[0_2px_15px_rgba(255,215,0,0.35)]">
-            DESCARREGO
+            BARALHO CIGANO
           </span>
           <br />
           <span className="text-xl sm:text-2xl not-italic font-display uppercase tracking-[0.4em] text-[#FFD700]/60 block mt-3">
-            Espiritual
+            Método Prático e Intuitivo
           </span>
         </h1>
 
@@ -89,7 +89,7 @@ export default function HeroSection({ onCTA }: HeroSectionProps) {
           ref={subtitleRef}
           className="mt-8 text-base sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-sans font-light"
         >
-          Aprenda a limpar energias negativas acumuladas, fortalecer sua proteção contra influências densas e reabrir seus caminhos de prosperidade e equilíbrio com a frequência de purificação.
+          Aprenda a interpretar as 36 cartas de forma prática, domine as combinações clássicas e realize consultas precisas sobre amor, trabalho e caminhos de vida.
         </p>
 
         {/* Pulsing Core Action Button */}
@@ -117,7 +117,7 @@ export default function HeroSection({ onCTA }: HeroSectionProps) {
         className="absolute bottom-12 flex flex-col items-center gap-2 cursor-pointer z-10 text-indigo-300/40 hover:text-indigo-300/80 transition-colors"
         onClick={onCTA}
       >
-        <span className="text-[10px] font-mono tracking-widest uppercase">Rolar Para Iniciar Ritual</span>
+        <span className="text-[10px] font-mono tracking-widest uppercase">Rolar Para Descobrir</span>
         <ArrowDown className="w-5 h-5 animate-bounce" />
       </div>
     </section>

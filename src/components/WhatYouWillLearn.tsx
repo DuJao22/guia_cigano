@@ -59,12 +59,31 @@ export default function WhatYouWillLearn() {
 
           <h2 className="text-3xl sm:text-5xl font-serif font-extralight italic tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400">
             O Que Você Vai Aprender <br />
-            No <span className="text-[#FFD700] not-italic font-normal">Guia de Descarrego</span>
+            No <span className="text-[#FFD700] not-italic font-normal">Manual do Baralho Cigano</span>
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto font-sans font-light">
-            Cada capítulo foi desenhado com processos exatos e receitas testadas para purificar sua energia, reerguer sua proteção e pavimentar caminhos limpos.
+            Cada capítulo foi estruturado com explicações diretas, métodos de tiragem e combinações práticas passo a passo para você fazer consultas precisas com total segurança.
           </p>
+        </div>
+
+        {/* Sacred Connection Callout Gesture Trigger */}
+        <div className="mb-12 max-w-4xl mx-auto px-4">
+          <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-purple-950/20 via-black/80 to-amber-950/10 border border-[#FFD700]/20 hover:border-[#FFD750]/40 transition-all duration-500 shadow-[0_4px_30px_rgba(255,215,0,0.03)] text-center overflow-hidden">
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FFD700]/70 to-transparent" />
+            <div className="absolute -right-16 -top-16 w-36 h-36 bg-[#FFD700]/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -left-16 -bottom-16 w-36 h-36 bg-purple-500/5 rounded-full blur-2xl pointer-events-none" />
+
+            <span className="text-[10px] font-mono tracking-widest text-[#FFD700]/80 uppercase block mb-3">
+              ✦ Portal da Transmutação ✦
+            </span>
+            <p className="font-serif italic text-lg sm:text-2xl text-zinc-100 tracking-wide leading-relaxed max-w-3xl mx-auto">
+              "Aprenda a fazer o <span className="text-[#FFD700] not-italic font-semibold drop-shadow-[0_2px_10px_rgba(255,215,0,0.25)]">descarrego</span> através dos estudos do <span className="text-[#FFD700] not-italic font-semibold drop-shadow-[0_2px_10px_rgba(255,215,0,0.25)]">baralho cigano</span>."
+            </p>
+            <p className="text-xs text-zinc-450 mt-3 font-sans font-light">
+              Use a sabedoria ancestral do oráculo para limpar influências negativas, proteger seus caminhos e equilibrar sua energia vital.
+            </p>
+          </div>
         </div>
 
         {/* Core Layout Grid */}
@@ -90,7 +109,7 @@ export default function WhatYouWillLearn() {
 
             <div className="mt-4 flex items-center justify-center gap-2 text-xs font-mono text-[#FFD700]/80">
               <span className="w-2 h-2 rounded-full bg-[#FFD700] animate-ping" />
-              <span>Giro Ativo • Grimório Sagrado v1.4</span>
+              <span>Giro Ativo • Manual Prático de Leitura</span>
             </div>
           </div>
 
@@ -159,7 +178,7 @@ export default function WhatYouWillLearn() {
                       {/* Topics Learned List */}
                       <div className="space-y-3">
                         <h4 className="text-xs font-mono text-[#FFD700] uppercase tracking-widest mb-1">
-                          Pontos Abordados no Ritual:
+                          Tópicos Fundamentais:
                         </h4>
                         
                         {chapter.topics.map((topic, i) => (

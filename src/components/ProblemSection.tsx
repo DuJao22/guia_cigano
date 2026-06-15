@@ -43,15 +43,15 @@ export default function ProblemSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-500/5 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase mb-4">
             <ShieldX className="w-3.5 h-3.5" />
-            Vulnerabilidade Espiritual
+            Desafios de Aprendizado
           </div>
           
           <h2 className="text-3xl sm:text-5xl font-serif font-extralight italic tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400">
-            Você Sentiu Algum <br className="sm:hidden" /> Desse <span className="text-[#FFD700] not-italic font-normal">Sintomas?</span>
+            Você Sofre Com Algum <br className="sm:hidden" /> Desses <span className="text-[#FFD700] not-italic font-normal">Bloqueios?</span>
           </h2>
           
           <p className="mt-4 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto font-sans font-light">
-            Sua energia sutil interage constantemente com o mundo ao seu redor. Quando acumulamos poeira astral, nossa vida começa a manifestar bloqueios físicos e emocionais.
+            Aprender Baralho Cigano não precisa ser uma decoreba confusa ou exaustiva. Veja se você se sabota com alguma das seguintes dificuldades cotidianas.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function ProblemSection() {
 
               {/* Core element index decorator */}
               <div className="absolute bottom-4 right-4 text-[9px] font-mono text-zinc-500 uppercase tracking-[0.2em] opacity-45 group-hover:opacity-100 transition-opacity">
-                Sinal Sutil
+                Dificuldade
               </div>
             </div>
           ))}
@@ -91,7 +91,7 @@ export default function ProblemSection() {
 
         <div className="mt-16 text-center">
           <p className="text-sm font-sans text-[#FFD700]/70 tracking-wider">
-            ⚠️ Se você se identificou com 2 ou mais sintomas, seu campo sutil necessita de um <b className="text-[#FFD700]">descarrego urgente</b>.
+            ⚠️ Se você se identificou com 1 ou mais desses bloqueios, você precisa de um <b className="text-[#FFD700]">método de leitura prático</b>.
           </p>
         </div>
 

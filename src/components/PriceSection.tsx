@@ -58,12 +58,12 @@ export default function PriceSection({ onCheckout }: PriceSectionProps) {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD700]/5 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase mb-4 animate-pulse">
             <Sparkles className="w-3.5 h-3.5" />
-            Entrando No Portal de Limpeza
+            Acesso Imediato ao Conhecimento
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-serif font-extralight italic tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400">
             Sua Oportunidade De <br />
-            <span className="text-[#FFD700] not-italic font-normal">Transformação Vibracional</span>
+            <span className="text-[#FFD700] not-italic font-normal">Dominar as Cartas</span>
           </h2>
         </div>
 
@@ -90,7 +90,7 @@ export default function PriceSection({ onCheckout }: PriceSectionProps) {
             {/* Offer labels */}
             <div className="mb-4">
               <span className="text-[10px] font-display text-[#FFD700] font-bold tracking-[0.3em] uppercase bg-[#FFD700]/10 border border-[#FFD700]/25 px-4 py-1.5 rounded-full inline-block">
-                SESSÃO PROMOCIONAL DO DESPERTAR
+                PROMOÇÃO DE LANÇAMENTO
               </span>
             </div>
 
@@ -115,11 +115,11 @@ export default function PriceSection({ onCheckout }: PriceSectionProps) {
             {/* List of included elements */}
             <div className="space-y-2.5 mb-8 border-t border-b border-zinc-900 py-6">
               {[
-                'Guia Completo de Descarrego Espiritual (PDF Completo)',
-                'Capítulo de Proteção das Portas e Banhos Fortes',
-                'Bônus 1: Caderno de Defumação do Lar',
-                'Bônus 2: Áudio Hertz 528hz Conexão Espiritual',
-                'Bônus 3: Amuleto dos Cristais de Blindagem'
+                'Manual Completo do Baralho Cigano (PDF Digital)',
+                'Guia de Métodos Clássicos de Tiragem',
+                'Bônus 1: Caderno de Combinações Rápidas (A-Z)',
+                'Bônus 2: Áudio Binaural de Sintonia e Intuição 528Hz',
+                'Bônus 3: Apostila de Tiragens Especiais de Amor'
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-3 text-xs sm:text-sm text-zinc-350 font-sans font-light">
                   <span className="w-4 h-4 rounded-full bg-[#FFD700]/10 border border-[#FFD700]/30 flex items-center justify-center text-[8px] text-[#FFD700] shrink-0 font-bold">

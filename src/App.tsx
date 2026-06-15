@@ -166,7 +166,7 @@ export default function App() {
             🔮
           </div>
           <span className="hidden min-[380px]:inline font-serif tracking-[0.25em] font-normal text-xs text-zinc-100 group-hover:text-[#FFD700] transition-colors uppercase">
-            DESCARREGO
+            BARALHO CIGANO
           </span>
         </div>
 
@@ -176,7 +176,7 @@ export default function App() {
             onClick={() => scrollToAnchor('problemas')}
             className={`hover:text-[#FFD700] cursor-pointer transition-colors pb-1 ${activeSection === 'problemas' ? 'text-[#FFD700] border-b border-[#FFD700]/60' : ''}`}
           >
-            Sintomas
+            Desafios
           </button>
           <button
             onClick={() => scrollToAnchor('transformacao')}

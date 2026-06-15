@@ -4,26 +4,26 @@ export const PROBLEMS_DATA: CardProblem[] = [
   {
     id: 'p1',
     icon: '😔',
-    title: 'Cansaço Sem Explicação',
-    description: 'Você dorme bem, mas acorda sem energia. Sente que suas forças estão sendo drenadas por fontes invisíveis e ambientes pesados.'
+    title: 'Medo de Errar Previssões',
+    description: 'Você sente uma forte atração pelas cartas, mas sente insegurança e medo de dar uma resposta errada ou de confundir quem está ouvindo.'
   },
   {
     id: 'p2',
     icon: '😔',
-    title: 'Sensação Espessa de Peso',
-    description: 'Uma impaciência constante, dores inexplicáveis nos ombros ou na nuca, e uma nuvem escura que parece acompanhar você por onde passa.'
+    title: 'Travar na Hora da Leitura',
+    description: 'Até consegue memorizar o significado isolado de algumas cartas, mas na hora de abrir o jogo as ideias travam e você não sabe por onde começar.'
   },
   {
     id: 'p3',
     icon: '😔',
-    title: 'Conflitos Constantes',
-    description: 'Discussões tolas em casa, irritabilidade à flor da pele com quem você ama e desentendimentos recorrentes sem justificativa lógica.'
+    title: 'Não Conectar as Cartas',
+    description: 'Sabe o que cada carta significa, mas na hora de combiná-las em duplas ou trios, a interpretação parece não fazer sentido e fica confusa.'
   },
   {
     id: 'p4',
     icon: '😔',
-    title: 'Falta de Prosperidade',
-    description: 'Caminhos financeiros travados, projetos promissores que dão errado de última hora e dinheiro que desaparece sem você perceber.'
+    title: 'Falta de Intuição Prática',
+    description: 'Sente que suas leituras são muito mecânicas e "frias", parecendo que está apenas lendo um dicionário em vez de acessar a intuição divina.'
   }
 ];
 
@@ -31,102 +31,102 @@ export const BENEFITS_DATA: Benefit[] = [
   {
     id: 'b1',
     icon: '✨',
-    title: 'Energia Renovada',
-    text: 'Sinta sua vitalidade retornar imediatamente.',
-    description: 'Liberte-se do cansaço crônico e desperte todas as manhãs com disposição física, foco mental e leveza espiritual.'
+    title: 'Intuição Desperta e Afiada',
+    text: 'Sinta sua intuição guiar cada leitura de forma fluida.',
+    description: 'Deixe para trás as interpretações decoradas e aprenda a escutar sua voz interior, conectando-se profundamente com a egrégora do Baralho Cigano.'
   },
   {
     id: 'b2',
     icon: '✨',
-    title: 'Mais Proteção',
-    text: 'Aprenda a erguer barreiras invisíveis.',
-    description: 'Fique imune a inveja, mau-olhado, fofocas e energias vampirizadoras vindas de pessoas tóxicas ou ambientes carregados.'
+    title: 'Combinação Sem Esforço',
+    text: 'Aprenda a criar conexões lógicas entre cartas.',
+    description: 'Domine a gramática das cartas combinadas. Saiba exatamente o que significa quando a Foice cruza o Caixão ou quando o Cavaleiro encontra o Anel.'
   },
   {
     id: 'b3',
     icon: '✨',
-    title: 'Mais Equilíbrio',
-    text: 'Paz interna restaurada.',
-    description: 'Alcance estabilidade emocional profunda, paciência e harmonia duradoura no seu lar e no seu relacionamento familiar.'
+    title: 'Confiança nos Atendimentos',
+    text: 'Leitura segura para você e para os outros.',
+    description: 'Tenha total segurança para ler para amigos, familiares e clientes reais, sabendo conduzir perguntas difíceis e fornecer orientações curativas.'
   },
   {
     id: 'b4',
     icon: '✨',
-    title: 'Mais Clareza',
-    text: 'Caminhos abertos e visão limpa.',
-    description: 'Tome decisões sábias e sinta o fluxo da prosperidade financeira e do sucesso profissional voltando a circular livremente.'
+    title: 'Conselhos e Direcionamento',
+    text: 'Use as cartas para clarear caminhos cotidianos.',
+    description: 'Use o Baralho Cigano como um portal diário de sabedoria prática para clarear decisões no amor, trabalho, finanças e na espiritualidade.'
   }
 ];
 
 export const CHAPTERS_DATA: Chapter[] = [
   {
     id: 1,
-    title: 'Banhos Sagrados de Descarrego',
+    title: 'O Despertar das 36 Cartas Sagradas',
     subtitle: 'Capítulo 1',
-    description: 'A ciência espiritual das ervas quentes, mornas e frias. Saiba a combinação exata de ervas protetoras para eliminar a negatividade e energizar sua aura.',
-    duration: 'Fórmula Exata Prática',
-    icon: '🍃',
+    description: 'O significado prático e intuitivo de cada uma das 36 cartas do Baralho Cigano. Aprenda a sentir a vibração e a linguagem visual de cada arcano de forma descomplicada.',
+    duration: 'Manual de Significados Práticos',
+    icon: '🃏',
     topics: [
-      'Ervas de descarrego forte (Guiné, Arruda, Espada-de-São-Jorge)',
-      'Como preparar o banho sem anular os princípios ativos das plantas',
-      'O ritual de consagração e ativação da energia das ervas',
-      'Banho de atração: reequilibrando a aura para o amor e prosperidade'
+      'A classificação das cartas: Positivas, Negativas e Neutras',
+      'Cartas de pessoas, de sentimentos e de ações temporais',
+      'Os segredos dos naipes e elementos associados a cada símbolo',
+      'Como sintonizar sua energia mental e consagrar seu primeiro deck'
     ]
   },
   {
     id: 2,
-    title: 'Limpeza e Purificação de Ambientes',
+    title: 'A Gramática das Combinações',
     subtitle: 'Capítulo 2',
-    description: 'Como diagnosticar e neutralizar energias estagnadas ou nocivas presas nos cantos da sua casa, móveis antigos ou locais onde houve discussões graves.',
-    duration: 'Passo a Passo Prático',
-    icon: '🏡',
+    description: 'Aprenda a fazer as cartas conversarem entre si! Descubra o método definitivo para cruzar duas ou mais cartas e obter uma resposta coesa, sem rodeios ou dúvidas.',
+    duration: 'Passo a Passo das Combinações',
+    icon: '🔗',
     topics: [
-      'Ritual de defumação caseira simples com carvão e ervas',
-      'Uso estratégico de sal grosso e limão para detecção e absorção de inveja',
-      'Como sintonizar o som e a vibração para reorganizar o campo do lar',
-      'A proteção dos portais da casa (portas e janelas)'
+      'O método da Carta Tema e das cartas adjacentes que a qualificam',
+      'Aberturas dinâmicas em linha de 3 cartas para respostas diretas',
+      'Como determinar prazos de tempo no jogo (dias, semanas, meses)',
+      'Exemplos práticos de cruzamentos reais comentados (Amor e Dinheiro)'
     ]
   },
   {
     id: 3,
-    title: 'Blindagem e Escudos Espirituais',
+    title: 'Métodos de Tiragens e Jogos Práticos',
     subtitle: 'Capítulo 3',
-    description: 'Métodos ancestrais de autodefesa energética. Aprenda a programar cristais amuleto e a traçar barreiras protetoras em volta do seu corpo antes de sair de casa.',
-    duration: 'Proteção 24 Horas',
-    icon: '🛡️',
+    description: 'Domine os principais jogos de medição e aconselhamento do Baralho Cigano. Das perguntas simples de "Sim ou Não" até layouts de caminhos e previsões futuras.',
+    duration: 'Técnicas de Jogo Profissionais',
+    icon: '🌟',
     topics: [
-      'Como carregar e consagrar sua Turmalina Negra e Olho de Tigre',
-      'Visualização ativa: Construindo o Escudo Energético Violeta',
-      'Como se blindar contra vampiros de energia no ambiente de trabalho',
-      'Desinfecção áurica urgente após receber visitas carregadas'
+      'Jogo de 1 Carta para o conselho diário rápido',
+      'A Tiragem das 5 Cartas para analisar Passado, Presente e Destino',
+      'Método da Estrela Cigana para direcionamento de caminhos e tomada de decisões',
+      'Introdução ao Grand Tableau (Mesa Real): O jogo completo de 36 cartas'
     ]
   },
   {
     id: 4,
-    title: 'Orações Ancestrais de Libertação',
+    title: 'Preparação, Limpeza e Consagração',
     subtitle: 'Capítulo 4',
-    description: 'Orações de alta potência vibracional capazes de romper cordões energéticos doentios, quebrar amarras espirituais e abrir as travas que impedem seu progresso.',
-    duration: 'Frequência Milenar',
-    icon: '📜',
+    description: 'Rituais práticos para limpar energeticamente seu deck e despertar as cartas usando as forças naturais dos 4 elementos (terra, água, fogo e ar).',
+    duration: 'Conexão Energética Forte',
+    icon: '🔮',
     topics: [
-      'A Oração Oculta de São Miguel para quebra de correntes',
-      'Preces de desobstrução e circulação de prosperidade divina',
-      'Palavras de força para afastar espíritos zombeteiros e obsessores',
-      'Salmos consagrados de proteção (Salmo 91 e Salmo 23 explicados)'
+      'Como purificar o baralho usando incenções e cristais amuleto',
+      'O ritual tradicional de consagração e ativação da egrégora cigana',
+      'Como se proteger espiritualmente e blindar seu campo áurico antes de ler',
+      'Como guardar e acolher seu baralho em tecidos e cores corretas'
     ]
   },
   {
     id: 5,
-    title: 'Rotina de Manutenção Energética',
+    title: 'Ética Oracular e Atendimentos Extraordinários',
     subtitle: 'Capítulo 5',
-    description: 'Aprenda a estruturar um estilo de vida sintonizado com altas vibrações. Um plano diário de 5 minutos para nunca mais acumular poeira espiritual.',
-    duration: 'Estilo de Vida Elevado',
-    icon: '🧘',
+    description: 'Como estruturar uma leitura profissional ou recreativa com total segurança, sabendo responder perguntas delicadas com empatia e autoridade, protegendo sua própria energia.',
+    duration: 'Padrão Profissional',
+    icon: '🤝',
     topics: [
-      'A micro-meditação matinal para ancoragem espiritual',
-      'Como reequilibrar seus centros de força (Chakras) de maneira simples',
-      'Higiene mental preventiva e eliminação de pensamentos obsessivos',
-      'O fechamento de corpo noturno e blindagem do sono contra pesadelos'
+      'Como formular perguntas precisas e evitar ambiguidades no jogo',
+      'O sigilo e a ética de atendimento: como comunicar verdades difíceis',
+      'Práticas para fechar e limpar o campo de jogo após a consulta',
+      'Dicas essenciais para começar a precificar e divulgar suas primeiras leituras'
     ]
   }
 ];
@@ -135,40 +135,40 @@ export const BONUS_DATA: Bonus[] = [
   {
     id: 'bonus1',
     badge: 'BÔNUS EXCLUSIVO 1',
-    title: 'Caderno de Defumação do Lar',
-    description: 'O segredo ancestral das ervas aromáticas para afastar forças densas da sua casa.',
+    title: 'Caderno de Combinações Rápidas (A-Z)',
+    description: 'Um guia prático de referência rápida contendo as 100 principais combinações do Baralho Cigano para consulta ágil durante suas leituras.',
     originalPrice: 'R$ 69,90',
-    icon: '🔥',
+    icon: '📖',
     details: [
-      'Fórmulas com alecrim, sálvia e alfazema',
-      'Como realizar a defumação no sentido correto',
-      'Oração de purificação para recitar durante o processo'
+      'Dicionário rápido com combinações clássicas anotadas',
+      'Foco direto em Amor, Relacionamentos, Finanças e Saúde',
+      'Ideal para consultar na tela do celular durante o treino'
     ]
   },
   {
     id: 'bonus2',
     badge: 'BÔNUS EXCLUSIVO 2',
-    title: 'Áudio de Programação Mental 528Hz',
-    description: 'Uma frequência de cura e regeneração celular das correntes sutis com mensagens subliminares.',
+    title: 'Áudio de Programação Intuitiva 528Hz',
+    description: 'Frequência de cura harmônica para silenciar a mente racional analítica e abrir o chakra frontal antes de iniciar seus jogos.',
     originalPrice: 'R$ 89,00',
     icon: '🎧',
     details: [
-      'Tecnologia binaural de purificação',
-      'Indução ao sono reparador e blindagem mental',
-      'Afirmações subliminares gravadas na camada quântica'
+      'Áudio de alta fidelidade com onda binaural de relaxamento',
+      'Reduz a ansiedade e clareia o medo mental de errar previsões',
+      'Excelente para ambientar seu espaço sagrado de leitura'
     ]
   },
   {
     id: 'bonus3',
     badge: 'BÔNUS EXCLUSIVO 3',
-    title: 'Guia Prático de Cristais de Blindagem',
-    description: 'O manual definitivo com os 7 cristais essenciais de proteção rápida.',
+    title: 'Guia de Jogos Específicos para o Amor',
+    description: 'Apostila com métodos exclusivos para desvendar sentimentos ocultos, compatibilidades de parceiros e tendências afetivas.',
     originalPrice: 'R$ 49,90',
-    icon: '💎',
+    icon: '💝',
     details: [
-      'Como limpar fisicamente e energizar as pedras',
-      'Onde colocar na casa ou no escritório',
-      'Como consagrar o amuleto para que ele atue permanentemente'
+      'O jogo do Templo de Afrodite adaptado ao Baralho Cigano',
+      'Indicação exata de intenções, atitudes e a energia mútua do casal',
+      'Identificação de influências externas, reconciliações ou novos rumos'
     ]
   }
 ];
@@ -177,9 +177,9 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 't1',
     name: 'Mariana Vasconcelos',
-    role: 'Arquiteta',
+    role: 'Estudante de Oráculos',
     location: 'Belo Horizonte - MG',
-    text: '“Minha casa vivia cheia de fofoca e intriga, eu sentia minhas pernas pesadas e uma preguiça inexplicável ao passar da porta. Fiz o banho ensinado e o ritual de sal grosso do capítulo 2. No mesmo dia a energia clareou de uma forma absurda! Sinto que respiro de verdade agora!”',
+    text: '“Comprei o guia e em menos de uma semana já consegui ler para minhas amigas usando o passo a passo das combinações do capítulo 2. Elas ficaram chocadas com os detalhes e acertos!”',
     avatarText: 'MV',
     stars: 5,
     date: 'Há 2 semanas'
@@ -187,9 +187,9 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 't2',
     name: 'Carlos Alberto Mendes',
-    role: 'Terapeuta e Empresário',
+    role: 'Terapeuta Holístico',
     location: 'São Paulo - SP',
-    text: '“Como terapeuta, eu absorvia muita energia pesada dos outros. O capítulo de blindagem e escudos energéticos mudou minha rotina. Hoje consigo atender dezenas de pacientes sem terminar o dia esgotado. Essa apostila digital vale mais do que mentorias de milhares de reais.”',
+    text: '“Sempre tive baralhos parados na gaveta com vergonha de ler. O manual de consagração e tiragens me deu a confiança que faltava. Hoje realizo previsões precisas de 5 cartas nos meus atendimentos para apoiar meus pacientes.”',
     avatarText: 'CA',
     stars: 5,
     date: 'Há 1 mês'
@@ -197,9 +197,9 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 't3',
     name: 'Helena Santos',
-    role: 'Professora',
+    role: 'Cartomante Iniciante',
     location: 'Curitiba - PR',
-    text: '“Eu estava desempregada, com processos travados e parecia que tudo que eu tentava fazer dava errado na última hora. Apliquei a oração oculta de desobstrução espiritual e comecei o cronograma de 5 minutos de manutenção. Dois dias depois fui chamada para uma entrevista! O dinheiro já se pagou no primeiro dia, sensacional!”',
+    text: '“Excelente didática! O manual de ética oracular e a apostila de combinações rápidas de amor valem ouro. Consegui tirar as dúvidas que cursos caríssimos nunca me responderam. Já estou cobrando minhas primeiras consultas!”',
     avatarText: 'HS',
     stars: 5,
     date: 'Há 3 dias'

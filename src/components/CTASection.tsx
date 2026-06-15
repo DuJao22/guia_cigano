@@ -42,7 +42,7 @@ export default function CTASection() {
         {/* Spiritual Compass Icon Badge */}
         <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD700]/5 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase">
           <Compass className="w-4 h-4 text-[#FFD700] animate-spin-slow" />
-          O Destino Está Em Suas Mãos
+          O Destino Revelado nas Cartas
         </div>
 
         {/* Headline */}
@@ -53,7 +53,7 @@ export default function CTASection() {
 
         {/* Description text block */}
         <p className="mt-6 text-sm sm:text-lg text-zinc-400 leading-relaxed font-sans font-light max-w-2xl mx-auto">
-          Não espere a energia mudar sozinha. Aprenda técnicas práticas para fortalecer sua espiritualidade e cuidar da sua energia vital.
+          Não espere o futuro acontecer sem saber para onde ir. Aprenda a ler as cartas ciganas com clareza absoluta e veja o melhor caminho diante de você.
         </p>
 
         {/* The Action buttons with exact url */}
@@ -72,7 +72,7 @@ export default function CTASection() {
 
         {/* Concluding Brazilian spiritual invitation text */}
         <p className="text-xs sm:text-sm text-[#FFD700]/70 max-w-xl mx-auto font-sans leading-relaxed tracking-wider font-light uppercase">
-          Transforme sua vibração hoje mesmo. Comece sua jornada rumo a um despertar profundo e equilibrado. Garanta sua vaga e eleve sua frequência agora.
+          Domine o Baralho Cigano hoje mesmo. Comece sua jornada rumo a revelações profundas e leituras seguras. Garanta o seu guia prático digital instantaneamente.
         </p>
 
         {/* Security / Quality Decal */}
@@ -85,7 +85,7 @@ export default function CTASection() {
 
       {/* Decorative footer footer copyright card */}
       <div className="absolute bottom-6 inset-x-0 text-center pointer-events-none select-none text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
-        © 2026 Guia de Descarrego Espiritual • Todos os Direitos Reservados.
+        © 2026 Manual Prático do Baralho Cigano • Todos os Direitos Reservados.
       </div>
     </section>
   );

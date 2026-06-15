@@ -150,7 +150,7 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
       powerPreference: "high-performance" 
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.2));
     containerRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
@@ -196,8 +196,8 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
     // PARTICLES CREATION
     // Performance Optimization: Adapt particle counts to smaller viewports to protect mobile CPUs/GPUs
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 800 : 1800;
-    const spiralCount = isMobile ? 480 : 1100;
+    const particleCount = isMobile ? 250 : 900;
+    const spiralCount = isMobile ? 150 : 550;
     
     const particlesGeo = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
@@ -333,6 +333,11 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
     let activeCameraRotY = 0;
 
     const tick = () => {
+      animationFrameId.current = requestAnimationFrame(tick);
+      
+      // Performant bypass if tab is in background
+      if (document.hidden) return;
+
       time += 0.01;
       
       // Interpolate states smoothly towards targets
@@ -496,7 +501,6 @@ export default function ThreeCanvas({ scrollProgress, activeSection }: ThreeCanv
       }
 
       renderer.render(scene, camera);
-      animationFrameId.current = requestAnimationFrame(tick);
     };
 
     tick();

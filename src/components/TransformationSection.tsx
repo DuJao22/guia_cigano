@@ -113,24 +113,24 @@ export default function TransformationSection() {
         <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left trans-heading">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFD700]/5 border border-[#FFD700]/30 text-[11px] font-display tracking-[0.4em] text-[#FFD700] uppercase mb-4 animate-pulse">
             <Sparkles className="w-3.5 h-3.5" />
-            Transmutação Áurica
+            Clareza Oracular
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-serif font-extralight italic tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-zinc-100 to-zinc-400 leading-[1.12]">
             Imagine Sentir Sua <br />
             <span className="text-[#FFD700] not-italic font-normal">
-              Energia Renovada
+              Intuição Desperta
             </span>
           </h2>
 
           <p className="mt-6 text-sm sm:text-base text-zinc-400 leading-relaxed font-sans font-light max-w-lg">
-            Ao aplicar as técnicas corretas de descarrego, você limpa os resíduos espirituais de inveja e bloqueios, criando um escudo energético invisível ao seu redor.
+            Ao dominar o método correto de leitura do Baralho Cigano, você destrava sua intuição e lê as cartas com total segurança e precisão, clareando suas dúvidas e guiando quem você ama.
           </p>
 
           <div className="mt-6 hidden lg:flex items-center gap-3 text-xs font-mono text-[#FFD700]/40 uppercase tracking-widest">
-            <span>Frequência Harmonizada</span>
+            <span>Oráculo Cigano</span>
             <span>•</span>
-            <span>Estabilidade Astral</span>
+            <span>Orientação Prática</span>
           </div>
         </div>
 
