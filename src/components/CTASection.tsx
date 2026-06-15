@@ -36,7 +36,7 @@ export default function CTASection() {
         {/* The Action buttons with exact url */}
         <div className="mt-10 mb-8">
           <a
-            href="https://pay.kiwify.com.br/JGTvMqc"
+            href="https://pay.kiwify.com.br/DtdmabV"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-3.5 px-10 py-5 font-sans font-bold text-xs sm:text-sm tracking-[0.25em] rounded-full bg-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.3)] hover:shadow-[0_0_35px_rgba(255,215,0,0.65)] hover:bg-[#ffe033] transition-all duration-300 overflow-hidden uppercase cursor-pointer transform hover:scale-[1.05]"

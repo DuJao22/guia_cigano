@@ -117,7 +117,7 @@ export default function App() {
           
           {/* Direct purchase checkout redirect */}
           <button
-            onClick={() => window.open('https://pay.kiwify.com.br/JGTvMqc', '_blank')}
+            onClick={() => window.open('https://pay.kiwify.com.br/DtdmabV', '_blank')}
             className="px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-full font-sans text-[9px] min-[360px]:text-[10px] font-bold tracking-[0.1em] sm:tracking-[0.2em] bg-[#FFD700] text-black shadow-[0_0_15px_rgba(255,215,0,0.25)] hover:shadow-[0_0_25px_rgba(255,215,0,0.45)] cursor-pointer transition-all hover:scale-[1.03] uppercase"
           >
             ADQUIRIR GUIA AGORA
@@ -149,7 +149,7 @@ export default function App() {
         <TestimonialsSection />
 
         {/* 7. Detailed offering price card with Book3D layout */}
-        <PriceSection onCheckout={() => window.open('https://pay.kiwify.com.br/JGTvMqc', '_blank')} />
+        <PriceSection onCheckout={() => window.open('https://pay.kiwify.com.br/DtdmabV', '_blank')} />
 
         {/* 8. Finale call of transformation and protection */}
         <CTASection />
